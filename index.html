@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Formelblad</title>
         <link rel="stylesheet" href="./css/style.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+	
 	<script defer src="./js/main.js"></script>
 	<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -22,11 +26,19 @@
 	    
 	    <h4>Einsteins coola formel</h4>
 	    
-	    <p>\[ E = mc^2  \] \( E \) är energin, \(m\) är massan, och \(c\) är ljusets hastighet </p>
+	    <p class="latex">\[ E = mc^2  \]</p>
 
-	    <div class="helper" onclick="unknown(this)"> <p class="E einstein">\(E\)</p> </div>
+	    <p class="latex">\( E \) är energin, \(m\) är massan, och \(c\) är ljusets hastighet. </p>
+
+	    <p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
+
+	    <div class="varcontainer">
 	    
+		<div class="helper" id="i" onclick="unknown(this)"> <p class="E einstein">\(E\)</p> </div>
+	    
+		<div class="helper" id="ii" onclick="unknown(this)"> <p class="m einstein">\(m\)</p> </div>
 
+	    </div>
 	    
 	</div>
 	
