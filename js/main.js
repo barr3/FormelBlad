@@ -55,8 +55,6 @@ class Formula {
 
 
     getInput(variable){
-	console.log(this.obj.id);
-	console.log(variable);
 
 	var main = document.getElementById(this.selectedId).parentElement.parentElement;
 
@@ -65,8 +63,9 @@ class Formula {
 	    for (var i = 0; i < this.numOfVars ; i++) {
 		
 	    }
-	    console.log("här händer det grejer ");
-	    main.insertAdjacentHTML("beforeend", '<div id="temp">  <input type="text" class="tempinput" id="tempinput" name="formula"><button class="tempbutton" onclick="removeField(this.parentElement)">Lös för '+ variable +' </button> </div>');
+	    var tempId = JSON.stringify(this.ids);
+	    main.insertAdjacentHTML("beforeend", `<div id='temp'>  <input type='text' class='tempinput' id='tempinput' name='formula'><button class='tempbutton' onclick='removeField(${tempId})'>Lös för ${variable} </button> </div>`);
+
 	} 
     }
 
@@ -107,7 +106,7 @@ function unknown(obj){
 		
 		if (formulas[i].obj[j] == obj) {
 		    clickedObject = formulas[i];
-		    console.log("korbscvpa");
+
 		    clickedObject.selectedId = clickedObject.obj[j].id;
 		}
 		
@@ -120,7 +119,6 @@ function unknown(obj){
 	// formulas.forEach(element => if (element == formulas[i].obj) {
 	    
 	// })
-
 
 	obj.classList.add("toggle");
 	var variable = obj.children[0].className;
@@ -190,16 +188,15 @@ function einstein(nr, obj, variable){
 
 
 function removeField(item){
-
-    // console.log(item.id);
-
-    var content = document.getElementById("tempinput").value; 
-   
-    console.log(content);
     
-    document.getElementById(item.id).classList.remove("toggle");
-    document.getElementById("temp").remove();
+    for (var i = 0; i < item.length; i++) {
+	document.getElementById(item[i]).classList.remove("toggle");
+    }
+    
+    var content = document.getElementById("tempinput").value; 
+    console.log(content);
 
+    document.getElementById("temp").remove();
     clickable = true;
 }
 
