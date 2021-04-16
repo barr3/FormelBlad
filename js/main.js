@@ -59,12 +59,12 @@ class Formula {
 	// var test = calc.eval(content);
 	// console.log(test);
 
-	console.log(input);
-	console.log(formula);
-	console.log(variable);
+	// console.log(input);
+	// console.log(formula);
+	// console.log(variable);
 
 	
-	
+	getEquation(formula);
 
 
 
@@ -109,7 +109,8 @@ class Formula {
 
 //================================================================================================================
 
-formulas.push(new Formula("\[ E=mc^2 \]", "korv", ["E", "m"], ["i","ii"]));
+// formulas.push(new Formula("\[ E=mc^2a) \]", "korv", ["E", "m"], ["i","ii"]));
+formulas.push(new Formula("\[ E = 2^4a) \]", "korv", ["E", "m"], ["i","ii"]));
 
 formulas.push(new Formula("\[ F=ma   \]", "korv", ["F", "m", "a"], ["iii","iv", "v"]));
 
@@ -168,12 +169,11 @@ function removeField(item, obj, variable){
     document.getElementById("temp").remove();
     clickable = true;
 
-    var formula = obj.formula;
+    var formula = obj.formulaTest;
     
     // console.log(variable);
         
     formulas[0].formulaLatex(content,formula,variable);
-    
     
     
     // return content;
@@ -184,3 +184,74 @@ function removeField(item, obj, variable){
 
 
 
+function getEquation(equation) {
+
+    // console.log(equation);
+
+    var leftSide = equation.split("=")[0];
+    var rightSide = equation.split("=")[1];
+
+    // console.log(leftSide);
+    // console.log(rightSide);
+
+    let leftSideVariables = [];
+    let rightSideVariables = [];
+    
+    for (var i = 0; i < leftSide.length; i++) {
+	leftSideVariables[i] = leftSide[i];
+
+    }
+    // console.log(leftSideVariables);
+    
+    for (var j = 0; j < rightSide.length; j++) {
+	rightSideVariables[j] = rightSide[j];
+
+	//If the equation contains an exponent
+	if (rightSideVariables[j] == "^") {
+	    var base = rightSideVariables[j-1];
+	    var exponentString = rightSide.split("^")[1].split(")")[0];
+	    var exponent = [];
+
+	    console.log(base);
+	    // console.log(exponent);
+
+	    
+	    
+	    for (var k = 0; k < exponentString.length; k++) {
+		console.log(exponentString[k]);
+		exponent[k]  = Number(exponentString[k]);
+		console.log(typeof(exponent[k]));
+		console.log(exponent[k]);
+
+
+		if (typeof(exponent[k])  == NaN) {
+		    console.log("Not a number");
+		    console.log(exponent[k]);
+		}
+		
+	    }
+
+	    
+	    
+	    
+	    
+	}
+
+	
+    }
+
+    // console.log(rightSideVariables);
+    
+
+
+    
+
+    
+    
+}
+
+function isNumeric(str) {
+    if (typeof str != "string") return false; // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+        !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
+}
