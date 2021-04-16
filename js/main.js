@@ -1,5 +1,20 @@
 "use strict";
 
+// function printMessage(message) {
+//     let expression = "console.log(" + message + ")";
+//     eval(expression);
+// }
+
+const a = 3;
+const message = "2**" + a;
+
+let expression = "console.log(" + message + ")";
+eval(expression);
+
+
+
+
+
 let formulas = [];
 
 class Formula {
@@ -12,6 +27,9 @@ class Formula {
 	// this.selectedId; //not sure if unused
 	this.obj = [];
 
+	this.notvars = [];
+
+	
 	this.formulaTest = formula.split("[ ")[1].split(" ]")[0];
 	this.formulaTest = this.formulaTest.replace(/\s/g, "");
 	
@@ -35,14 +53,18 @@ class Formula {
     //Not implemented yet.
     getOtherVars(e){
 
+	var korv = 0;
+	
 	for (var i = 0; i < this.vars.length; i++) {
 	    
 	    if (this.vars[i] != e) {
-		this.notvars[i] = this.vars[i];
+		this.notvars[0] = this.vars[i];
+		korv++;
 	    }
 	    
 	}
-	
+
+
     }
 
     
@@ -62,6 +84,10 @@ class Formula {
 	// console.log(input);
 	// console.log(formula);
 	// console.log(variable);
+
+	console.log(this.getOtherVars(variable));
+
+	console.log(this.notvars);
 
 	
 	getEquation(formula);
@@ -110,7 +136,7 @@ class Formula {
 //================================================================================================================
 
 // formulas.push(new Formula("\[ E=mc^2a) \]", "korv", ["E", "m"], ["i","ii"]));
-formulas.push(new Formula("\[ E = 2^4a) \]", "korv", ["E", "m"], ["i","ii"]));
+formulas.push(new Formula("\[ E = 2^(4+a) \]", "korv", ["E", "m"], ["i","ii"]));
 
 formulas.push(new Formula("\[ F=ma   \]", "korv", ["F", "m", "a"], ["iii","iv", "v"]));
 
@@ -173,7 +199,7 @@ function removeField(item, obj, variable){
     
     // console.log(variable);
         
-    formulas[0].formulaLatex(content,formula,variable);
+    formulas[1].formulaLatex(content,formula,variable,obj);
     
     
     // return content;
@@ -196,44 +222,73 @@ function getEquation(equation) {
 
     let leftSideVariables = [];
     let rightSideVariables = [];
-    
+
     for (var i = 0; i < leftSide.length; i++) {
 	leftSideVariables[i] = leftSide[i];
 
     }
     // console.log(leftSideVariables);
+
+
+
     
     for (var j = 0; j < rightSide.length; j++) {
 	rightSideVariables[j] = rightSide[j];
-
+	
 	//If the equation contains an exponent
 	if (rightSideVariables[j] == "^") {
+
+
+	    
+	    
+	    
 	    var base = rightSideVariables[j-1];
 	    var exponentString = rightSide.split("^")[1].split(")")[0];
 	    var exponent = [];
 
-	    console.log(base);
+	    // console.log(base);
 	    // console.log(exponent);
 
 	    
 	    
 	    for (var k = 0; k < exponentString.length; k++) {
-		console.log(exponentString[k]);
-		exponent[k]  = Number(exponentString[k]);
-		console.log(typeof(exponent[k]));
+		// console.log(exponentString[k]);
+		// exponent[k]  = parseFloat(exponentString[k]);		    
+		// console.log(exponentString[k]);
+
+
+		if (isNaN(parseFloat(exponentString[k])) == false){
+		    exponent[k] = parseFloat(exponentString[k]);		    
+		} else {
+		    exponent[k] = exponentString[k];
+		}
+		
+
+		
+		// console.log(typeof(exponent[k]));
 		console.log(exponent[k]);
 
+		
+		
 
-		if (typeof(exponent[k])  == NaN) {
-		    console.log("Not a number");
-		    console.log(exponent[k]);
-		}
+		// if (typeof(exponent[k])  == NaN) {
+		//     console.log("Not a number");
+		//     console.log(exponent[k]);
+		// }
 		
 	    }
 
-	    
-	    
-	    
+	    console.log(exponent);
+
+
+	    console.log(rightSide);
+
+
+	    rightSide = rightSide.replace("^", "**");
+	    console.log(rightSide);
+
+	    var result = eval(rightSide);
+	    console.log(result);
 	    
 	}
 
