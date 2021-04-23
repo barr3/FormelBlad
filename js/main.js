@@ -5,21 +5,20 @@
 //     eval(expression);
 // }
 
-const a = 3;
-const message = "2**" + a;
+var a;
+var m;
+const c = 299792458;
+// const message = "2**" + a;
 
-let expression = "console.log(" + message + ")";
-eval(expression);
-
-
-
+// let expression = "console.log(" + message + ")";
+// eval(expression);
 
 
 let formulas = [];
 
 class Formula {
     constructor(formula, explainaiton, vars, ids) {
-
+	
 	this.formula = formula;
 	this.explaination = explainaiton;
 	this.ids = ids;
@@ -29,15 +28,15 @@ class Formula {
 
 	this.notvars = [];
 
-	
-	this.formulaTest = formula.split("[ ")[1].split(" ]")[0];
-	this.formulaTest = this.formulaTest.replace(/\s/g, "");
+
+	this.formula = formula.split("[\ ")[1].split(" \]")[0];
+	this.formula = this.formula.replace(/\s/g, "");
 	
 
 
-	for (var i = 0; i < this.formulaTest.length; i++) {
-	    // console.log(this.formulaTest[i]);
-	}
+	// for (var i = 0; i < this.formulaTest.length; i++) {
+	//     console.log(this.formulaTest[i]);
+	// }
 	
 	
 	//Takes all ids and inserts the corresponding DOM-object in the obj array.
@@ -58,7 +57,7 @@ class Formula {
 	for (var i = 0; i < this.vars.length; i++) {
 	    
 	    if (this.vars[i] != e) {
-		this.notvars[0] = this.vars[i];
+		this.notvars[korv] = this.vars[i];
 		korv++;
 	    }
 	    
@@ -68,7 +67,7 @@ class Formula {
     }
 
     
-    formulaLatex(input,formula,variable){
+    formulaLatex(input,variable){
 	// for (var i = 0; i < this.vars.length; i++) {
 	//     console.log(this.vars[i]);
 	// }
@@ -85,18 +84,62 @@ class Formula {
 	// console.log(formula);
 	// console.log(variable);
 
-	console.log(this.getOtherVars(variable));
 
-	console.log(this.notvars);
 
+	this.getOtherVars(variable);
 	
-	getEquation(formula);
+	// getEquation(formula);
 
 
+	var leftSide = this.formula.split("=")[0];
+	var rightSide = this.formula.split("=")[1];
 
-
-
+	// console.log(leftSide);
+	// console.log(rightSide);
 	
+	let leftSideVariables = [];
+	let rightSideVariables = [];
+
+	for (var i = 0; i < leftSide.length; i++) {
+	    leftSideVariables[i] = leftSide[i];	    
+	}
+	// console.log(leftSideVariables);
+	
+	for (var j = 0; j < rightSide.length; j++) {
+
+	    if (isNaN(Number(rightSide[j])) == false) {
+
+		if (j != 0) {	
+		    rightSideVariables[j] += Number(rightSide[j]);	    
+		}
+
+	    } else {
+		rightSideVariables[j] = rightSide[j];
+	    }
+	    
+	    //If the equation contains an exponent
+	    if (rightSideVariables[j] == "^") {
+		rightSide = rightSide.replace("^", "**");
+	    }
+
+	    
+	    
+	}
+
+	eval(this.notvars + "= input");
+	
+	var result = eval(rightSide);
+	console.log(result);
+	
+	var test = document.getElementById("1");
+
+	// document.getElementById("result").remove();
+	
+	test.insertAdjacentHTML("beforeend", `<div id='result'>  <p class="latex"> ${leftSide} = ${result}  </p>    </div>`);
+
+
+	// pairObjects()
+
     }
 
     //Detects what unknown variable is pressed and inserts a textbox to get user input. 
@@ -133,12 +176,13 @@ class Formula {
 
 }
 
+
 //================================================================================================================
 
 // formulas.push(new Formula("\[ E=mc^2a) \]", "korv", ["E", "m"], ["i","ii"]));
-formulas.push(new Formula("\[ E = 2^(4+a) \]", "korv", ["E", "m"], ["i","ii"]));
+formulas.push(new Formula("\[ E = m * c^2 \]", "korv", ["E", "m"], ["i","ii"]));
 
-formulas.push(new Formula("\[ F=ma   \]", "korv", ["F", "m", "a"], ["iii","iv", "v"]));
+formulas.push(new Formula("\[ F = 30 + a   \]", "korv", ["F", "m", "a"], ["iii","iv", "v"]));
 
 //================================================================================================================
 
@@ -146,33 +190,19 @@ formulas.push(new Formula("\[ F=ma   \]", "korv", ["F", "m", "a"], ["iii","iv", 
 var clickable = true;
 
 function unknown(obj){
-    
+
     if (clickable == true) {
 	clickable = false;
-
-	//checks the clicked object and matches it with the objects in formulas.
-	var clickedObject; 
-	for (var i = 0; i < formulas.length; i++) {
-
-	    for (var j = 0; j < formulas[i].obj.length; j++) {
-
-		if (formulas[i].obj[j] == obj) {
-		    clickedObject = formulas[i];
-		    clickedObject.selectedId = clickedObject.obj[j].id;
-		}
-		
-	    }
-	    
-	}
 
 	obj.classList.add("toggle");
 	var variable = obj.children[0].className;
 
-	clickedObject.getInput(variable);
+	pairObjects(obj).getInput(variable);
 	
     } else {
 	obj.classList.remove("toggle");
 	document.getElementById("temp").remove();
+	document.getElementById("result").remove;
 	clickable = true;
     }
     
@@ -181,10 +211,10 @@ function unknown(obj){
 
 
 //Removes
-function removeField(item, obj, variable){
+function removeField(itemId, obj, variable){
     
-    for (var i = 0; i < item.length; i++) {
-	document.getElementById(item[i]).classList.remove("toggle");
+    for (var i = 0; i < itemId.length; i++) {
+	document.getElementById(itemId[i]).classList.remove("toggle");
     }
     
     var content = document.getElementById("tempinput").value; 
@@ -193,14 +223,60 @@ function removeField(item, obj, variable){
     // console.log(obj.formula);
 
     document.getElementById("temp").remove();
+
     clickable = true;
 
-    var formula = obj.formulaTest;
+    // var formula = obj.formulaTest;
     
     // console.log(variable);
-        
-    formulas[1].formulaLatex(content,formula,variable,obj);
+
+
+    // console.log(object);
+
+    // obj.formulaLatex(content,variable);
+
+
+    var clickedObject;
+
+    for (var r = 0; r < formulas.length; r++) {
+
+	// console.log(obj.ids);
+	// console.log(formulas[r].ids);
+
+	// for (var l = 0; l < obj.ids.length; l++) {
+
+
+	//     console.log(obj.ids[l]);
+	//     console.log(formulas[r].ids[l]);	    
+
+
+
+	//     if (obj.ids[l] == formulas[r].ids[l]) {
+		
+		
+	// 	console.log("bingo");
+	//     }
+	    
+	// }
+
+	if (obj.ids[0] == formulas[r].ids[0]) {
+
+	    clickedObject = formulas[r];
+	}
+
+
+	
+    }
+
+    // console.log(clickedObject);
+    if (document.getElementById("result") != null) {
+	document.getElementById("result").remove();	
+    }
+
     
+    clickedObject.formulaLatex(content, variable);
+    
+    // console.log(clickedObject == formulas[1]);
     
     // return content;
 
@@ -209,7 +285,7 @@ function removeField(item, obj, variable){
 }
 
 
-
+//Remove
 function getEquation(equation) {
 
     // console.log(equation);
@@ -300,13 +376,26 @@ function getEquation(equation) {
 
 
     
-
-    
-    
 }
 
-function isNumeric(str) {
-    if (typeof str != "string") return false; // we only process strings!  
-    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-        !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
+
+function pairObjects(obj) {
+
+    
+    var clickedObject;
+    for (var i = 0; i < formulas.length; i++) {
+	
+	for (var j = 0; j < formulas[i].obj.length; j++) {
+
+	    if (formulas[i].obj[j] == obj) {
+		clickedObject = formulas[i];
+		clickedObject.selectedId = clickedObject.obj[j].id;
+	    }
+		
+	}
+	    
+    }
+
+    return clickedObject;
+    
 }
