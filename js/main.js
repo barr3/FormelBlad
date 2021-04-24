@@ -4,6 +4,9 @@ var a;
 var m;
 var E;
 var F;
+var v;
+var t;
+var s;
 const c = 299792458;
 
 
@@ -85,7 +88,7 @@ class Formula {
 	
 	var test = document.getElementById(this.blockId); 
 	
-	test.insertAdjacentHTML("beforeend", `<div id='result'>  <p class="latex"> ${leftSide} = ${result}  </p>    </div>`);
+	test.insertAdjacentHTML("beforeend", `<div id='result'>  <p class="latex"> ${leftSide} = ${result} </p>    </div>`);
 
     }
 
@@ -118,7 +121,7 @@ class Formula {
 
 	    placeholder += '. Separera värdena med ett ";"';
 	    
-	    console.log(placeholder);
+
 	    
 	    main.insertAdjacentHTML("beforeend", `<div id='temp'>  <input type='text' placeholder='${placeholder}'  class='tempinput' id='tempinput' name='formula'><button class='tempbutton' onclick='removeField(${tempId}, ${tempObj}, ${varString})'>Lös för ${variable} </button> </div>`);
 
@@ -134,6 +137,10 @@ class Formula {
 formulas.push(new Formula(["E = m * c **2", "m = E/(c^2)"], "korv", ["E", "m"], ["i","ii"], 1));
 
 formulas.push(new Formula(["F = m * a", "m = F/a", "a = F/m"], "korv", ["F", "m", "a"], ["iii","iv", "v"], 2));
+
+formulas.push(new Formula(["v = s/t", "s = v * t", "t = s/v"], "korv", ["v", "s", "t"], ["vi", "vii", "viii",], 3   ));
+
+formulas.push(new Formula(["a = v/t", "v = a * t", "t = a/v"], "korv", ["a", "v", "t"], ["ix", "x", "xi"], 4  ));
 
 //================================================================================================================
 

@@ -3,9 +3,32 @@ body{
     padding-left: 10vw;
 }
 
+header a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4vw;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}
+
+
+header{
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 4vw;
+    font-family: 'Roboto', sans-serif;
+}
+
 
 h3 {
-    padding-left: 10px;
+    padding-left: 15px;
     font-size: 3.5vw;
     font-family: 'Roboto', sans-serif;
 }
@@ -16,9 +39,14 @@ h4 {
     font-family: 'Roboto', sans-serif;    
 }
 
-p {
+p, a {
     font-size: 3vw; 
     font-family: 'Roboto', sans-serif;   
+}
+
+a {
+    text-decoration: none;
+    color: blue;
 }
 
 .smalltext {
@@ -77,4 +105,19 @@ p {
 .varcontainer{
     display: flex;
     justify-content: space-around; 
+}
+
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 1.7vw;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-size: 1.7vw;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    font-size: 1.7vw;
+}
+:-moz-placeholder { /* Firefox 18- */
+    font-size: 1.7vw;
 }
