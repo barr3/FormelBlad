@@ -62,7 +62,7 @@ class Formula {
 	for (var i = 0; i < this.vars.length; i++) {
 	    
 	    if (this.vars[i] != e) {
-		this.notvars[korv] = this.vars[i];
+		this.notvars[index] = this.vars[i];
 		index++;
 	    }
 	    
