@@ -27,10 +27,14 @@ h1 {
     font-family: 'Roboto', sans-serif;
 }
 
+h2 {
+    font-size:3vw;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 1.5vw;
+}
 
 h3 {
-    padding-left: 15px;
-    font-size: 3.5vw;
+    font-size: 2.3vw;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -40,18 +44,20 @@ h4 {
     font-family: 'Roboto', sans-serif;    
 }
 
+
 p, a {
     font-size: 3vw; 
     font-family: 'Roboto', sans-serif;   
 }
 
 a {
-    text-decoration: none;
-    color: blue;
+    font-style: italic;
+    color: black;
 }
 
 .smalltext {
-    font-size: 1.5vw;
+    font-size: 2vw;
+    font-family: 'Fira Code', monospace;
 }
 
 .helper {
@@ -95,9 +101,9 @@ a {
 }
 
 .formula{
-    border: 1px solid black;
+    border: 0.1vw solid black;
     padding: 5vw;
-    border-radius: 5px;
+    border-radius: 1vw;
     margin-bottom: 10vw;
     margin-right: 5vw;
     margin-left: 5vw; 
@@ -123,3 +129,12 @@ a {
     font-size: 1.7vw;
 }
 
+footer {
+    padding-top: 100px;
+    text-align:center;
+    
+}
+footer p {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.3vw;
+}
