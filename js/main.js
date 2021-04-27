@@ -10,6 +10,7 @@ var s;
 const c = 299792458;
 
 
+
 let formulas = [];
 
 class Formula {

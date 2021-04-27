@@ -4,6 +4,7 @@ body{
 }
 
 header a {
+    margin-top: 30px;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-size: 4vw;
@@ -11,14 +12,14 @@ header a {
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     
 }
 
 
 header{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 h1 {
@@ -121,3 +122,4 @@ a {
 :-moz-placeholder { /* Firefox 18- */
     font-size: 1.7vw;
 }
+
