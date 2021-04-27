@@ -1,12 +1,12 @@
 * High priority
-- [ ] Returnera enheten med svaret
-- [ ] Create an html-document for each course
-- [ ] Make the explanations smaller
-- [ ] Remove the need for having ids in html, for scalability.
+** TODO Returnera enheten med svaret
+** TODO Create an html-document for each course
+** TODO Make the explanations smaller
+** TODO Remove the need for having ids in html, for scalability.
 
 
 * Low priority
-- [ ] Merge css to one document
-- [ ] Return answer as latex, for styling.
-- [ ] Add a settings menu with darkmode and link behaviour.
+** TODO Merge css to one document
+** TODO Return answer as latex, for styling.
+** TODO Add a settings menu with darkmode and link behaviour.
 
