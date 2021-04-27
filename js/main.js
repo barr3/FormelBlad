@@ -14,26 +14,41 @@ const c = 299792458;
 let formulas = [];
 
 class Formula {
-    constructor(formula, explainaiton, vars, ids, blockId) {
+    constructor(formula, vars, blockId) {
 	
 	this.formula = formula;
-	this.explaination = explainaiton;
-	this.ids = ids;
-	this.vars = vars;
-	this.blockId = blockId;
+	this.vars = vars; //variables used in formula. I.E ["E", "m"] in E=mc²
+	this.blockId = blockId; //id of the dom-object containing the formula
+
+	this.ids = [];
 	
 	this.obj = [];
 
-	
 	this.notvars = [];
 
+	
+	// console.log(document.getElementById(this.blockId).childNodes[9].childNodes[1].id);
+
+
+	
+
 	for (var z = 0; z < formula.length; z++) {
-	    this.formula[z] = this.formula[z].replace(/\s/g, "");  // removes spaces	    
+	    this.formula[z] = this.formula[z].replace(/\s/g, "");  // removes spaces from formula
 	}
 
 	//Takes all ids and inserts the corresponding DOM-object in the obj array.
-	for (var i = 0; i < this.ids.length; i++) { 
-	    this.obj.push(document.getElementById(this.ids[i]));	    
+	this.numOfIds = document.getElementById(this.blockId).childNodes[9].childNodes.length;
+	// this.numOfIds = Math.floor(this.numOfIds/2);
+	var tempIndex = 0;
+	for (var i = 0; i < this.numOfIds; i++) {
+
+	    var temp = document.getElementById(this.blockId).childNodes[9].childNodes[i].id;	    
+	    if (temp != undefined) {
+		this.ids[tempIndex] = temp;
+		this.obj.push(document.getElementById(this.ids[tempIndex]));
+		tempIndex++;
+	    }
+
 	}
 	
 	this.numOfVars = vars.length;
@@ -42,14 +57,13 @@ class Formula {
 
     //Returns all the variables that are not selected by the user
     getOtherVars(e){
-
-	var korv = 0;
+	var index = 0;
 	
 	for (var i = 0; i < this.vars.length; i++) {
 	    
 	    if (this.vars[i] != e) {
 		this.notvars[korv] = this.vars[i];
-		korv++;
+		index++;
 	    }
 	    
 	}
@@ -95,11 +109,13 @@ class Formula {
 
     //Detects what unknown variable is pressed and inserts a textbox to get user input. 
     getInput(variable){
-
+	console.log(this.selectedId);
+	console.log(document.getElementById(this.selectedId).parentElement.parentElement);
 	var main = document.getElementById(this.selectedId).parentElement.parentElement;
 
+	
 	if (clickable == false) {
-
+	    console.log(this.ids);
 	    var tempId = JSON.stringify(this.ids);
 	    var tempObj = JSON.stringify(this);
 	    var varString = JSON.stringify(variable);
@@ -108,8 +124,6 @@ class Formula {
 	    
 	    var placeholder;
 
-
-	    
 	    for (var i = 0; i < this.notvars.length; i++) {
 		
 		if (i == 0) {
@@ -135,28 +149,33 @@ class Formula {
 //================================================================================================================
 
 
-formulas.push(new Formula(["E = m * c **2", "m = E/(c^2)"], "korv", ["E", "m"], ["i","ii"], 1));
+formulas.push(new Formula(["E = m * c **2", "m = E/(c^2)"], ["E", "m"], 1));
 
-formulas.push(new Formula(["F = m * a", "m = F/a", "a = F/m"], "korv", ["F", "m", "a"], ["iii","iv", "v"], 2));
+formulas.push(new Formula(["F = m * a", "m = F/a", "a = F/m"], ["F", "m", "a"], 2));
 
-formulas.push(new Formula(["v = s/t", "s = v * t", "t = s/v"], "korv", ["v", "s", "t"], ["vi", "vii", "viii",], 3   ));
+formulas.push(new Formula(["v = s/t", "s = v * t", "t = s/v"], ["v", "s", "t"], 3   ));
 
-formulas.push(new Formula(["a = v/t", "v = a * t", "t = a/v"], "korv", ["a", "v", "t"], ["ix", "x", "xi"], 4  ));
+formulas.push(new Formula(["a = v/t", "v = a * t", "t = a/v"], ["a", "v", "t"],  4  ));
 
 //================================================================================================================
 
+console.log(formulas);
 
 var clickable = true;
 
 function unknown(obj){  //Gets called when an obj get clicked on the site
 
+    
     if (clickable == true) {
 	clickable = false;
 
+	console.log(obj);
+	
 	obj.classList.add("toggle");
 	var variable = obj.children[0].className;
 
 	pairObjects(obj).getInput(variable);
+
 	
     } else {
 	obj.classList.remove("toggle");
@@ -205,6 +224,7 @@ function pairObjects(obj) { //Takes an html-object and returns the corresponding
 	    if (formulas[i].obj[j] == obj) {
 		jsObject = formulas[i];
 		jsObject.selectedId = jsObject.obj[j].id;
+		console.log(jsObject);
 	    }
 		
 	}
