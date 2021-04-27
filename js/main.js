@@ -11,6 +11,9 @@ const c = 299792458;
 
 
 
+
+
+
 let formulas = [];
 
 class Formula {
@@ -26,6 +29,8 @@ class Formula {
 
 	this.notvars = [];
 
+
+
 	
 	// console.log(document.getElementById(this.blockId).childNodes[9].childNodes[1].id);
 
@@ -36,6 +41,15 @@ class Formula {
 	    this.formula[z] = this.formula[z].replace(/\s/g, "");  // removes spaces from formula
 	}
 
+
+	
+
+	this.numOfVars = vars.length;
+
+    }
+
+    assignIds(){ //assigns ids to the objects
+		
 	//Takes all ids and inserts the corresponding DOM-object in the obj array.
 	this.numOfIds = document.getElementById(this.blockId).childNodes[9].childNodes.length;
 	// this.numOfIds = Math.floor(this.numOfIds/2);
@@ -51,8 +65,6 @@ class Formula {
 
 	}
 	
-	this.numOfVars = vars.length;
-
     }
 
     //Returns all the variables that are not selected by the user
@@ -109,13 +121,14 @@ class Formula {
 
     //Detects what unknown variable is pressed and inserts a textbox to get user input. 
     getInput(variable){
-	console.log(this.selectedId);
-	console.log(document.getElementById(this.selectedId).parentElement.parentElement);
-	var main = document.getElementById(this.selectedId).parentElement.parentElement;
+	// console.this.selectedId);
+	// console.log(document.getElementById(this.selectedId).parentElement.parentElement);
 
+	var main = document.getElementById(this.selectedId).parentElement.parentElement;
+	
 	
 	if (clickable == false) {
-	    console.log(this.ids);
+
 	    var tempId = JSON.stringify(this.ids);
 	    var tempObj = JSON.stringify(this);
 	    var varString = JSON.stringify(variable);
@@ -159,20 +172,72 @@ formulas.push(new Formula(["a = v/t", "v = a * t", "t = a/v"], ["a", "v", "t"], 
 
 //================================================================================================================
 
-console.log(formulas);
+
+
+function romanize (num) {  //converts arabic numerals to roman numerals
+    if (isNaN(num))
+        return NaN;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
+var buttons = document.getElementsByClassName("helper");
+
+
+for(var i = 0; i < buttons.length; i++) {
+    buttons[i].id = romanize(i+1);
+}
+
+var romanNumeral = 1;
+
+
+//Sets the ids formulas correctly according to their corresponding buttons.
+//This is pretty messy ngl
+for (var i = 0; i < formulas.length; i++){
+
+    for (var j = 0; j < buttons.length; j++){
+
+	if (formulas[i].blockId == buttons[j].parentElement.parentElement.id){
+
+	    for (var k = 0; k < buttons[j].parentElement.children.length; k++){	   
+
+		for (var l = 0; l < formulas[i].vars.length; l++){
+		    formulas[i].ids[l] = buttons[j].parentElement.children[l].id;
+		    formulas[i].assignIds();
+		}
+		
+	    }
+	    
+	}
+	
+    }
+    
+}
+
+
+
+
 
 var clickable = true;
 
 function unknown(obj){  //Gets called when an obj get clicked on the site
 
-    
+
     if (clickable == true) {
 	clickable = false;
+	
 
-	console.log(obj);
 	
 	obj.classList.add("toggle");
 	var variable = obj.children[0].className;
+	
 
 	pairObjects(obj).getInput(variable);
 
@@ -218,13 +283,14 @@ function pairObjects(obj) { //Takes an html-object and returns the corresponding
 
     var jsObject;
     for (var i = 0; i < formulas.length; i++) {
-	
+
 	for (var j = 0; j < formulas[i].obj.length; j++) {
 
+	    
 	    if (formulas[i].obj[j] == obj) {
 		jsObject = formulas[i];
 		jsObject.selectedId = jsObject.obj[j].id;
-		console.log(jsObject);
+
 	    }
 		
 	}
