@@ -1,148 +1,156 @@
 <!DOCTYPE html>
 <html lang="se">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Formelblad</title>
-        <link rel="stylesheet" href="../css/style.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formelblad</title>
+    <link rel="stylesheet" href="../css/style.css">
 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
 
+    
+    <script defer src="../js/main.js"></script>
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+  </head>
+  <body>
+
+    <header>
+
+      <a href="../index.html">Till startsidan</a>
+
+      
+    </header>
+    
+    
+    <h1> Fysik 1</h1>
+
+    <div class="section">
+      
+      <h2 class="collapsible"> Rörelse </h2>
+      <article id="rörelse" class="content">
 	
-	<script defer src="../js/main.js"></script>
-	<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
-	
-    </head>
-    <body>
 
-	<header>
+	<div class="formula", id="3">
+	  
+	  <h4>Medelhastighet</h4>
+	  
+	  <p class="latex">\[ v_m = \frac{\Delta s}{\Delta t}  \]</p>
 
-	    <a href="../index.html">Hem</a>
+	  <p class="latex explanation">\( v_m \) är medelhastigheten, \( \Delta s  \) är förändringen i sträcka ,  och \( \Delta t \) är förändringen i tid. </p>
 
+	  <p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
+
+	  <div class="varcontainer">
 	    
-	</header>
-	
-	
-	<h1> Fysik 1</h1>
-
-
-	<article id="rörelse">
+	    <div class="helper" onclick="unknown(this)"> <p class="v">\(v_m\)</p> </div>
 	    
-	    <h2> Rörelse </h2>
+	    <div class="helper" onclick="unknown(this)"> <p class="s">\( \Delta s  \)</p> </div>
+
+	    <div class="helper" onclick="unknown(this)"> <p class="t">\( \Delta t  \)</p> </div>
+
+	  </div>
+	  
+
+	</div>
 
 
-	    <div class="formula", id="3">
-		
-		<h4>Medelhastighet</h4>
-		
-		<p class="latex">\[ v_m = \frac{\Delta s}{\Delta t}  \]</p>
+	<div class="formula", id="4">
+	  
+	  <h4>Medelacceleration</h4>
+	  
+	  <p class="latex">\[ a_m = \frac{\Delta v}{\Delta t}  \]</p>
 
-		<p class="latex">\( v_m \) är medelhastigheten, \( \Delta s  \) är förändringen i sträcka ,  och \( \Delta t \) är förändringen i tid. </p>
+	  <p class="latex explanation">\( a_m \) är medelaccelerationen, \( \Delta v  \) är förändringen i hastighet ,  och \( \Delta t \) är förändringen i tid. <a href="#3"> Se även</a> </p>
 
-		<p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
+	  <p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
 
-		<div class="varcontainer">
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="v">\(v_m\)</p> </div>
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="s">\( \Delta s  \)</p> </div>
+	  <div class="varcontainer">
+	    
+	    <div class="helper" onclick="unknown(this)"> <p class="a">\(a_m\)</p> </div>
+	    
+	    <div class="helper"  onclick="unknown(this)"> <p class="v">\( \Delta v  \)</p> </div>
 
-		    <div class="helper" onclick="unknown(this)"> <p class="t">\( \Delta t  \)</p> </div>
+	    <div class="helper"  onclick="unknown(this)"> <p class="t">\( \Delta t  \)</p> </div>
 
-		</div>
-		
+	  </div>
+	  
 
-	    </div>
-
-
-	    <div class="formula", id="4">
-		
-		<h4>Medelacceleration</h4>
-		
-		<p class="latex">\[ a_m = \frac{\Delta v}{\Delta t}  \]</p>
-
-		<p class="latex">\( a_m \) är medelaccelerationen, \( \Delta v  \) är förändringen i hastighet ,  och \( \Delta t \) är förändringen i tid. <a href="#3"> Se även</a> </p>
-
-		<p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
-
-		<div class="varcontainer">
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="a">\(a_m\)</p> </div>
-		    
-		    <div class="helper"  onclick="unknown(this)"> <p class="v">\( \Delta v  \)</p> </div>
-
-		    <div class="helper"  onclick="unknown(this)"> <p class="t">\( \Delta t  \)</p> </div>
-
-		</div>
-		
-
-	    </div>
+	</div>
 
 
 
-	</article>
+      </article>
 
-	
-	<article id="ellära">
+    </div>
+    
 
-	    <h2>Ellära</h2>
+    <div class="section">
 
-	    <div class="formula", id="1">
-		
-		<h4>Einsteins coola formel</h4>
-		
-		<p class="latex">\[ E = mc^2  \]</p>
-
-		<p class="latex">\( E \) är energin, \(m\) är massan, och \(c\) är ljusets hastighet. </p>
-
-		<p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
-
-		<div class="varcontainer">
-		    
-		    <div class="helper"  onclick="unknown(this)"> <p class="E">\(E\)</p> </div>
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="m">\(m\)</p> </div>
-
-		</div>
-		
-
-	    </div>
-
-	    <div class="formula", id="2">
-		
-		<h4>Kraftformeln</h4>
-		
-		<p class="latex">\[ F = ma  \]</p>
-
-		<p class="latex">\( F \) är kraften, \(m\) är massan, och \(a\) är accelerationen. </p>
-
-		<p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
-
-		<div class="varcontainer">
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="F">\(F\)</p> </div>
-		    
-		    <div class="helper" onclick="unknown(this)"> <p class="m">\(m\)</p> </div>
-
-		    <div class="helper" onclick="unknown(this)"> <p class="a">\(a\)</p> </div>
-
-		</div>
-		
-	    </div>
-
-	</article>
+      <h2 class="collapsible">Ellära</h2>
+      
+      <article id="ellära" class="content">
 
 
 
-	<footer class="center">
-	  <p>Copyright Barre Nils Fredrik Svante Åke Blomberg 2021</p>
-	</footer>
-	
-    </body>
+	<div class="formula", id="1">
+	  
+	  <h4>Einsteins coola formel</h4>
+	  
+	  <p class="latex">\[ E = mc^2  \]</p>
+
+	  <p class="latex explanation">\( E \) är energin, \(m\) är massan, och \(c\) är ljusets hastighet. </p>
+
+	  <p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
+
+	  <div class="varcontainer">
+	    
+	    <div class="helper"  onclick="unknown(this)"> <p class="E">\(E\)</p> </div>
+	    
+	    <div class="helper" onclick="unknown(this)"> <p class="m">\(m\)</p> </div>
+
+	  </div>
+	  
+
+	</div>
+
+	<div class="formula", id="2">
+	  
+	  <h4>Kraftformeln</h4>
+	  
+	  <p class="latex">\[ F = ma  \]</p>
+
+	  <p class="latex explanation">\( F \) är kraften, \(m\) är massan, och \(a\) är accelerationen. </p>
+
+	  <p class="smalltext">Vill du räkna ut en okänd variabel? Klicka på den okända variabeln nedan.</p>
+
+	  <div class="varcontainer">
+	    
+	    <div class="helper" onclick="unknown(this)"> <p class="F">\(F\)</p> </div>
+	    
+	    <div class="helper" onclick="unknown(this)"> <p class="m">\(m\)</p> </div>
+
+	    <div class="helper" onclick="unknown(this)"> <p class="a">\(a\)</p> </div>
+
+	  </div>
+	  
+	</div>
+
+      </article>
+
+    </div>
+
+    <footer class="center">
+      <p>Copyright Barre Nils Fredrik Svante Åke Blomberg 2021</p>
+    </footer>
+    
+  </body>
 </html>

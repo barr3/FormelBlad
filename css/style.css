@@ -11,11 +11,10 @@ header a {
     color: black;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-style: normal;
 }
-
 
 header{
     display: flex;
@@ -44,9 +43,20 @@ h4 {
     font-family: 'Roboto', sans-serif;    
 }
 
+.collapsible:hover, header a:hover{
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.section {
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    margin-bottom: 6vh;
+}
 
 p, a {
-    font-size: 3vw; 
+    font-size: 5vw; 
     font-family: 'Roboto', sans-serif;   
 }
 
@@ -55,43 +65,59 @@ a {
     color: black;
 }
 
+
+
+
+.explanation {
+    font-size:3.4vw;
+}
+
+
+
+
 .smalltext {
     font-size: 2vw;
     font-family: 'Fira Code', monospace;
 }
 
 .helper {
-    height: 4vw;
-    width: 4vw;
+    height: 8vw;
+    width: 8vw;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 1vw;
 }
 
 .helper:hover{
-    background-color: gray;
+    outline: 0.1vw solid black;
 }
 
 .helper.toggle{
-    background-color: gray;
+    outline: 0.1vw solid black;
 }
 
-/* .latex{ */
-
-/* } */
 
 #temp{
     width: 100%;
     display: flex;
     justify-content: center;
-
+    margin-top: 2vw;
 }
 
 .tempinput{
     width: 100%;
     font-size: 2vw;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    padding-left: 2vw;
+    outline:none;
+    margin-right: 1vw;
+}
+
+.tempinput:focus {
+    border: 0.3vw solid black;    
 }
 
 .tempbutton{
@@ -100,11 +126,20 @@ a {
     font-size: 2vw;
 }
 
+.tempbutton {
+    cursor:pointer;
+    background-color: white;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+
+}
+
 .formula{
     border: 0.1vw solid black;
     padding: 5vw;
     border-radius: 1vw;
-    margin-bottom: 10vw;
+    margin-bottom: 6vw;
+    margin-top 4vw;
     margin-right: 5vw;
     margin-left: 5vw; 
 }
