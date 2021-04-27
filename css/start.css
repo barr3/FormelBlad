@@ -35,6 +35,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size:3vw;
+}
+
 h3 {
     font-size: 2.3vw;
 }
@@ -42,8 +46,6 @@ h3 {
 h4 {
     font-size: 1.5vw;
 }
-
-
 
 footer {
     padding-top: 100px;
@@ -55,3 +57,48 @@ footer {
     justify-content: space-around;
 }
 
+.rubrik {
+    display:flex;
+    gap: 2vw;
+    justify-content:center;
+    padding-bottom: 3vh;
+}
+
+.tabell {
+    display:flex;
+    justify-content: space-between;
+}
+
+.ämne {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    margin: 3vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+
+.kurs {
+    color:black;
+    font-size: 2.3vw;
+}
+
+.kurser {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+
+.outline{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    border: 0.2vw solid black;
+    border-radius: 1vw;
+    padding: 5vw;
+}
