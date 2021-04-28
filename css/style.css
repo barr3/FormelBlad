@@ -1,7 +1,10 @@
 body{
-    padding-right: 10vw;
-    padding-left: 10vw;
+    padding-right: 15vw;
+    padding-left: 15vw;
+    scrollbar-width: thin;
+    scrollbar-color: black white;
 }
+
 
 header a {
     margin-top: 30px;
@@ -50,12 +53,17 @@ h4 {
 }
 
 .section {
-    border: 0.1vw solid black;
+    border: 0.2vw solid black;
     border-radius: 1vw;
     margin-bottom: 6vh;
 }
 
-p, a {
+.content {
+    display: block;
+}
+
+
+p{
     font-size: 5vw; 
     font-family: 'Roboto', sans-serif;   
 }
@@ -63,6 +71,7 @@ p, a {
 a {
     font-style: italic;
     color: black;
+    font-size:3.4vw;
 }
 
 
@@ -117,7 +126,7 @@ a {
 }
 
 .tempinput:focus {
-    border: 0.3vw solid black;    
+    outline: 0.3vw solid black;    
 }
 
 .tempbutton{
@@ -148,6 +157,24 @@ a {
     display: flex;
     justify-content: space-around; 
 }
+
+.active {
+    display: none;
+}
+
+/* .collapsible:after { */
+/*     content: '\02795'; /\* Unicode character for "plus" sign (+) *\/ */
+/*     font-family: 'Roboto', sans-serif;   	 */
+/*     font-size: 3vw; */
+/*     color: black; */
+/*     float: right; */
+/*     padding-right: 1vw; */
+/* } */
+
+/* .active:after { */
+/*   content: "\2796"; /\* Unicode character for "minus" sign (-) *\/ */
+/* } */
+ 
 
 
 

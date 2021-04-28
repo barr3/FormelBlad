@@ -8,7 +8,14 @@ var v;
 var t;
 var s;
 const c = 299792458;
-
+const g = 9.82;
+const G = 6.673e-11;
+var m1;
+var m2;
+var r;
+var mu;
+var Ff;
+var FN;
 
 
 
@@ -107,9 +114,9 @@ class Formula {
 	for (var p = 0; p < this.notvars.length; p++) {
 	    eval(this.notvars[p] + "= input.split(';')[p]");
 	}
+
 	
-	
-	
+	console.log(rightSide);
 	var result = eval(rightSide);
 	console.log(result);
 	
@@ -163,15 +170,19 @@ class Formula {
 
 
 formulas.push(new Formula(["E = m * c **2", "m = E/(c^2)"], ["E", "m"], 1));
-
 formulas.push(new Formula(["F = m * a", "m = F/a", "a = F/m"], ["F", "m", "a"], 2));
-
 formulas.push(new Formula(["v = s/t", "s = v * t", "t = s/v"], ["v", "s", "t"], 3   ));
-
 formulas.push(new Formula(["a = v/t", "v = a * t", "t = a/v"], ["a", "v", "t"],  4  ));
+formulas.push(new Formula(["F = G * (m1 * m2 / (r**2))", "m1 = F * r**2/(G * m2)",
+			   "m2 = F * r**2/(G * m1)", "r = Math.sqrt(G * (m1 * m2 / (F)))"],
+			  ["F", "m1", "m2", "r"], 6))		 			  
+formulas.push(new Formula(["F = m * g", "m = F/g"], ["F", "m"], 7));
+formulas.push(new Formula(["Ff = mu * FN", "mu = Ff / FN", "FN = Ff / mu"], ["Ff","mu", "FN"], 8 ))
+
 
 //================================================================================================================
 
+console.log(G);
 
 
 function romanize (num) {  //converts arabic numerals to roman numerals
@@ -302,18 +313,12 @@ function pairObjects(obj) { //Takes an html-object and returns the corresponding
 }
 
 
-
+//Allows for folding in the text
 var coll = document.getElementsByClassName("collapsible");
-
-
 for (var i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
+    coll[i].addEventListener("click", function() {
+	// this.classList.toggle("active");
+	var content = this.nextElementSibling;
+	content.classList.toggle("active");
+    });
 }
