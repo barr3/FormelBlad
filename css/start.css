@@ -1,3 +1,9 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header a {
     margin-top: 8vh;
     text-decoration: none;
@@ -16,9 +22,20 @@ header{
     justify-content: space-between;
 }
 
-body{
-    padding-right: 10vw;
-    padding-left: 10vw;
+body,html {
+    display: grid;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    width: 50%;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1fr auto;
+}
+
+main {
+    margin-top: -3rem;
 }
 
 p {
@@ -31,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 4vw;
+    font-size: 2vw;
     text-align: center;
 }
 
@@ -48,6 +65,9 @@ h4 {
 }
 
 footer {
+    margin: auto;
+    display: flex;
+    justify-self: center;
     padding-top: 100px;
     text-align: center;
 }
@@ -64,27 +84,36 @@ footer {
     padding-bottom: 3vh;
 }
 
-.tabell {
-    display:flex;
-    justify-content: space-between;
-}
+
 
 .ämne {
     display:flex;
     flex-direction: column;
     text-align: center;
-    border: 0.1vw solid black;
+    border: 0.1vw dashed black;
     border-radius: 1vw;
-    margin: 3vw;
     padding-top: 5vw;
     padding-bottom: 5vw;
-    padding-right: 1vw;
-    padding-left: 1vw;
+    margin-bottom: 1rem;
 }
 
 .kurs {
-    color:black;
-    font-size: 2.3vw;
+    font-family: 'Roboto', sans-serif;
+        background-color: rgb(241, 245, 253);
+        margin: auto;
+        margin-bottom: 1rem;
+        padding: 0.3rem;
+        width: 15vw;
+        border-radius: 2rem;
+        color:black;
+        font-size: 1.7vw;
+        text-decoration: none;
+}
+
+.kurs:hover {
+    transition-duration: 200ms;
+    background-color: aliceblue;
+
 }
 
 .kurser {
@@ -96,9 +125,204 @@ footer {
 
 .outline{
     display:flex;
+    width: 30rem;
     flex-direction: column;
     justify-content:center;
     border: 0.2vw solid black;
     border-radius: 1vw;
     padding: 5vw;
+}
+
+button {
+    float: right;
+    margin: 1rem;
+    width: 4rem;
+    height: 2rem;
+}
+
+#dark {
+    background-color: rgb(30, 48, 51);
+    color: #FFF;
+    font-weight: 700;
+}
+
+#light {
+    font-weight: 700;
+    background-color: rgb(214, 239, 243);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.faq {
+    display: flex;
+    width: 35rem;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body, html {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr auto;
+    }
+    h1{
+        padding: 1rem;
+        font-size: 2rem;
+    }
+    header a {
+        margin-top: 8vh;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 4vw;
+        color: black;
+        padding-left: 0.6vw;
+        padding-right: 0.6vw;
+        border: 0.2vw solid black;
+        border-radius: 1vw;
+        
+    }
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+    
+    p {
+        font-family: 'Fira Code', monospace;
+        font-size: 1.3vw;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+ 
+    
+    h2 {
+        font-size:2vw;
+    }
+    
+    h3 {
+        font-size: 2.3vw;
+    }
+    
+    h4 {
+        margin-top: 1.2rem;
+        font-size: 1.5vw;
+    }
+    
+    footer {
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 1rem;
+
+    }
+
+    .kurs-pic-matte {
+        margin-top: -3rem;
+        margin-bottom: 2rem;
+    }
+    .kurs-pic-fysik {
+        margin-top: -3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .mainpics {
+        display:flex; 
+        justify-content: space-around;
+    }
+    
+    .rubrik {
+        width: 30rem;
+        display:flex;
+        gap: 2vw;
+        justify-content:center;
+        padding-bottom: 4vh;
+    }
+    
+    .tabell {
+        display:flex;
+        flex-direction: row;
+    }
+    
+    .ämne {
+        width: 35vw;
+        display:flex;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+        flex-direction: column;
+        text-align: center;
+        border-style: none;
+        border-style: solid;
+        border-radius: 1rem;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+        margin-bottom: 0rem;
+    }
+    
+    .kurs {
+        font-family: 'Roboto', sans-serif;
+        background-color: rgb(241, 245, 253);
+        margin: 0.6rem;
+        padding: 0.3rem;
+        width: 15vw;
+        border-radius: 2rem;
+        color:black;
+        font-size: 1.7vw;
+        text-decoration: none;
+    }
+
+    .kurs:hover {
+        transition-duration: 200ms;
+        background-color: aliceblue;
+    }
+    
+    .kurser {
+        height: 24rem;
+        display:flex;
+        flex-direction: column;
+        justify-content:start;
+        align-items: center;
+    }
+    
+    
+    .outline{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        border: 0.2vw solid black;
+        border-radius: 1vw;
+        width: 70vw;
+        padding: 2vw;
+    }
+    
+
+    .faq {
+        display: flex;
+        margin: auto;
+        width: 70rem;
+        flex-direction: column;
+        padding: 2rem;
+        border-radius: 2rem;
+        margin-top: 1rem;
+        justify-content: space-between;
+    }
+
 }
