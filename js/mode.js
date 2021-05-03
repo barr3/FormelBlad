@@ -67,16 +67,14 @@ function enableDark() { //bilder mst man göra om i typ PS
         h3Elements[i].style.color = "#fff";
     }
 
-<<<<<<< HEAD:scripts/main.js
-    localStorage.setItem(LOCAL_STORAGE_KEY_BAFB, JSON.stringify("dark"));
 
-=======
+    localStorage.setItem(LOCAL_STORAGE_KEY_BAFB, JSON.stringify("dark"));
 
     const cb = document.getElementById("check");
     if (cb.checked != true){
         enableLight();
     }
->>>>>>> 83762074dc610257343c9305e88d7b4d89e023d8:js/mode.js
+
 }   
 
 
