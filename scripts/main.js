@@ -1,4 +1,19 @@
-function enableDark() { //bilder mst man göra om i typ PS
+"use strict"
+
+const LOCAL_STORAGE_KEY_BAFB = "app.mode"
+
+let mode = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_BAFB)) || [];
+
+console.log(mode);
+
+if (mode == "dark"){
+    enableDark();
+} else {
+    enableLight();
+} 
+
+
+function enableDark() { 
     document.body.style.backgroundColor = "	#151521";
     var h1Elements = document.getElementsByTagName("h1");
     let boxFysik = document.getElementById("fysik-ämne");
@@ -33,6 +48,9 @@ function enableDark() { //bilder mst man göra om i typ PS
     for(var i = 0; i < h3Elements.length; i++) {
         h3Elements[i].style.color = "#fff";
     }
+
+    localStorage.setItem(LOCAL_STORAGE_KEY_BAFB, JSON.stringify("dark"));
+
 }   
 
 
@@ -72,4 +90,6 @@ function enableLight() {
     for(var i = 0; i < h3Elements.length; i++) {
         h3Elements[i].style.color = "#000";
     }
+
+    localStorage.setItem(LOCAL_STORAGE_KEY_BAFB, JSON.stringify("light"));
 }   
