@@ -18,7 +18,6 @@ function enableDark() {
 
 
 function enableDark() { //bilder mst man göra om i typ PS
->>>>>>> 83762074dc610257343c9305e88d7b4d89e023d8:js/mode.js
     document.body.style.backgroundColor = "	#151521";
     var h1Elements = document.getElementsByTagName("h1");
     var h2Elements = document.getElementsByTagName("h2");
