@@ -72,6 +72,66 @@ footer {
     text-align: center;
 }
 
+.switch {
+    display: flex;
+    justify-content: end;
+    float: right;
+    margin-top: 1rem;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    left: 1;
+    width: 3.8rem;
+    height: 2rem;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input {
+      display: none;
+  }
+  
+  input:checked + .slider {
+    background-color: #7f54b6;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #8b36d1;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
 .mainpics {
     display:flex; 
     justify-content: space-around;
@@ -90,7 +150,7 @@ footer {
     display:flex;
     flex-direction: column;
     text-align: center;
-    border: 0.1vw dashed black;
+    border: 0.1vw solid black;
     border-radius: 1vw;
     padding-top: 5vw;
     padding-bottom: 5vw;
@@ -135,20 +195,34 @@ footer {
 
 button {
     float: right;
+    cursor:pointer;
+    background-color: white;
+    border: 0.1vw solid rgba(0, 0, 0, 0.151);
+    border-radius: 0.3vw;
     margin: 1rem;
     width: 4rem;
     height: 2rem;
 }
 
 #dark {
-    background-color: rgb(30, 48, 51);
+    background-color: rgb(51, 30, 47);
     color: #FFF;
     font-weight: 700;
 }
 
 #light {
     font-weight: 700;
-    background-color: rgb(214, 239, 243);
+    background-color: rgb(255, 255, 255);
+}
+
+#dark:hover, #light:hover {
+    background-color: rgb(52, 81, 87);
+    transition-duration: 200ms;
+}
+
+#light:hover {
+    background-color: rgb(52, 81, 87);
+    transition-duration: 200ms;
 }
 
 button:hover {
@@ -163,7 +237,6 @@ button:hover {
     border-radius: 2rem;
     margin-top: 1rem;
     justify-content: space-between;
-    text-align: center;
 }
 
 @media (min-width: 1200px) {
