@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BAFP</title>
     <link rel="stylesheet" href="./css/start.css">
+<<<<<<< HEAD
 
+=======
+    <script src="js/mode.js"></script>
+>>>>>>> 83762074dc610257343c9305e88d7b4d89e023d8
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -22,11 +26,12 @@
   <body>
 
     <main>
-      <div class="dark-light">
-          <button onclick="enableDark()" id="dark" class="mode">Dark mode</button>  
-          <button onclick="enableLight()" id="light" class="mode">Light mode</button>          
+   
 
-      </div>
+      <label class="switch">
+        <input type="checkbox" id="check" onclick="enableDark()">
+        <span class="slider round"></span>
+      </label>
 
       <h1> Välkommen till BAFB, Barres Användbara FormelBlad. </h1>
       <!-- <div class="mainpics"> -->
@@ -43,7 +48,7 @@
 
 	    <div class="rubrik">
 	      <h2>Matte </h2>
-	      <img class="kurs-pic-matte" src="./img/math.png" alt="mattefunktion" width="35%">
+	      <img id="mattePic" class="kurs-pic-matte" src="./img/math.png" alt="mattefunktion" width="35%">
 	    </div>
 	    <div class="kurser">
 	      <a href="./html/matte1.html" class="kurs">Matte 1</a>
@@ -59,7 +64,7 @@
 
 	    <div class="rubrik">
 	      <h2>Fysik</h2>
-	      <img class="kurs-pic-fysik" src="./img/physics.png" alt="fallande äpple" width="35%">
+	      <img id="fysikPic" class="kurs-pic-fysik" src="./img/physics.png" alt="fallande äpple" width="35%">
 	    </div>
 	    <div class="kurser"> 
 	      <a href="./html/fysik1.html" class="kurs">Fysik 1</a>
