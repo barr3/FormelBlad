@@ -12,11 +12,6 @@ if (mode == "dark"){
     enableLight();
 } 
 
-
-function enableDark() { 
-
-
-
 function enableDark() { //bilder mst man göra om i typ PS
     document.body.style.backgroundColor = "	#151521";
     var h1Elements = document.getElementsByTagName("h1");
