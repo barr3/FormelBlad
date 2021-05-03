@@ -14,7 +14,7 @@ if (mode == "dark"){
 
 
 function enableDark() { 
-=======
+
 
 
 function enableDark() { //bilder mst man göra om i typ PS
