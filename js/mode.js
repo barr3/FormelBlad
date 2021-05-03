@@ -1,4 +1,4 @@
-<<<<<<< HEAD:scripts/main.js
+
 "use strict"
 
 const LOCAL_STORAGE_KEY_BAFB = "app.mode"
