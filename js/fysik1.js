@@ -182,7 +182,6 @@ formulas.push(new Formula(["Ff = mu * FN", "mu = Ff / FN", "FN = Ff / mu"], ["Ff
 
 //================================================================================================================
 
-console.log(G);
 
 
 function romanize (num) {  //converts arabic numerals to roman numerals
