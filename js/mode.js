@@ -139,7 +139,7 @@ function enableLight() {
 
 
     let faq = document.getElementById("faqId");
-    faq.style.backgroundColor = "#1f1f30";
+    faq.style.backgroundColor = "#eee";
 
     // box.style.backgroundColor ="#FFF";
     // boxFysik.style.borderColor = "#000"
