@@ -66,20 +66,35 @@ h4 {
     font-size: 1.5vw;
 }
 
+
 footer {
+    width: 100%;
+    padding-top: 100px;
+    text-align:center;
     margin: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 1vw;
-    text-align: center;   
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+}
+
+.darkmode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.darkmode p {
+    margin: 0;
 }
 
 .switch {
     display: flex;
     justify-content: end;
     float: right;
-    margin-top: 1rem;
 }
 
 .slider {
@@ -151,11 +166,11 @@ footer {
     display: none;
 }
 
-.ämne {
+.sub {
     display:flex;
     flex-direction: column;
     text-align: center;
-    border: 0.1vw solid black;
+    border: 0.1vw solid;
     border-radius: 1vw;
     padding-top: 5vw;
     padding-bottom: 5vw;
@@ -182,6 +197,8 @@ footer {
     background-color: aliceblue;
 
 }
+
+
 
 .kurser {
     display:flex;
@@ -303,16 +320,20 @@ button:hover {
     }
 
     footer {
+	width: 100%;
+	padding-top: 100px;
+	text-align:center;
+	margin: auto;
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	gap: 1vw;
+	padding-top: 3vw;
+	padding-bottom: 3vw;
     }
-    
-    footer p {
-        font-size: 1rem;
 
+    footer p {
+	font-family: 'Fira Code', monospace;
+	font-size: 1.3vw;
     }
 
     .kurs-pic-matte {
@@ -355,7 +376,7 @@ button:hover {
     /*     margin-bottom: 0rem; */
     /* } */
 
-    .ämne{
+    .sub{
 	border: 0.1vw solid black;
     }
     

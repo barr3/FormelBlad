@@ -6,7 +6,7 @@
     <title>BAFP</title>
     <link rel="stylesheet" href="./css/start.css">
 
-    <script defer src="js/mode.js"></script>
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
       
 
       <div class="tabell">
-      <div class="ämne">
+      <div class="sub">
 
 	    <div class="rubrik">
 	      <h2>Matte </h2>
@@ -60,7 +60,7 @@
 	    </div>
 	  </div>
 
-	  <div class="ämne">
+	  <div class="sub">
 
 	    <div class="rubrik">
 	      <h2>Fysik</h2>
@@ -99,10 +99,14 @@
 
     <footer class="center">
       <p>Copyright Barre Nils Fredrik Svante Åke Blomberg 2021</p>
-      <label class="switch">
-        <input type="checkbox" id="check" onclick="enableDark()">
-        <span class="slider round"></span>
-      </label>
+
+      <div class="darkmode">
+	<p> Dark mode</p>
+	<label class="switch">
+          <input type="checkbox" id="check" onclick="toggleMode()">
+          <span class="slider round"></span>
+	</label>
+      </div>
     </footer>
     
   </body>

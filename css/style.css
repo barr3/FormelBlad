@@ -1,3 +1,9 @@
+:root {
+    --button-color: ;
+    --button-border: ;
+    --button-text: ;
+}
+
 body{
     padding-right: 15vw;
     padding-left: 15vw;
@@ -27,6 +33,7 @@ header{
 h1 {
     font-size: 4vw;
     font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
 }
 
 h2 {
@@ -60,6 +67,8 @@ h4 {
 
 .content {
     display: block;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 
@@ -100,11 +109,12 @@ a {
 }
 
 .helper:hover{
-    outline: 0.1vw solid black;
+    outline: 0.1vw solid var(--color);
+    cursor: pointer;
 }
 
 .helper.toggle{
-    outline: 0.1vw solid black;
+    outline: 0.1vw solid var(--color);
 }
 
 
@@ -118,7 +128,9 @@ a {
 .tempinput{
     width: 100%;
     font-size: 2vw;
-    border: 0.1vw solid black;
+    border: 0.1vw solid var(--button-border);
+    color: var(--button-text);
+    background-color: var(--button-color);
     border-radius: 1vw;
     padding-left: 2vw;
     outline:none;
@@ -126,7 +138,7 @@ a {
 }
 
 .tempinput:focus {
-    outline: 0.3vw solid black;    
+    outline: 0.3vw solid var(--button-border);    
 }
 
 .tempbutton{
@@ -137,8 +149,9 @@ a {
 
 .tempbutton {
     cursor:pointer;
-    background-color: white;
-    border: 0.1vw solid black;
+    color: var(--button-text);
+    background-color: var(--button-color);
+    border: 0.1vw solid var(--button-border);
     border-radius: 1vw;
 
 }
@@ -149,13 +162,19 @@ a {
     border-radius: 1vw;
     margin-bottom: 6vw;
     margin-top: 4vw;
-    margin-right: 5vw;
-    margin-left: 5vw; 
+    /* margin-right: 5vw; */
+    /* margin-left: 5vw; */
+    background-clip: content-box;
 }
+
 
 .varcontainer{
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
+}
+
+#result {
+    color: var(--button-text);
 }
 
 .active {
@@ -194,9 +213,81 @@ a {
 footer {
     padding-top: 100px;
     text-align:center;
-    
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
 }
+
 footer p {
     font-family: 'Fira Code', monospace;
     font-size: 1.3vw;
 }
+
+.darkmode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    display: flex;
+    justify-content: end;
+    float: right;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    left: 1;
+    width: 3.8rem;
+    height: 2rem;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  #check {
+      display: none;
+  }
+  
+  input:checked + .slider {
+    background-color: #7f54b6;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #8b36d1;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
