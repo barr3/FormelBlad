@@ -19,13 +19,14 @@ function enableDark() {
     var h1Elements = document.getElementsByTagName("h1");
     var h2Elements = document.getElementsByTagName("h2");
     var aElements = document.getElementsByTagName("a");
-    // let boxFysik = document.getElementById("fysik-Ã¤mne");
-    // let box = document.getElementById("matte-Ã¤mne");
+    // let boxFysik = document.getElementById("fysik-ämne");
+    // let box = document.getElementById("matte-ämne");
     let outline = document.getElementsByClassName("outline");
-    let border = document.getElementsByClassName("Ã¤mne");
+
     for (var i = 0; i < outline.length; i++) {
 	outline[i].style.borderColor = "#626294";
     }
+    let border = document.getElementsByClassName("ämne");    
     for (var i = 0; i < border.length; i++) {
 	border[i].style.borderColor = "#626294";
     }

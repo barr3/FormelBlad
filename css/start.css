@@ -12,14 +12,17 @@ header a {
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     border: 0.2vw solid black;
-    border-radius: 1vw;
-    
+    border-radius: 1vw;    
 }
 
 header{
     display: flex;
     justify-content: center;
     margin-bottom: 2vw;
+}
+
+#mattePic, #fysikPic{
+    margin-top: 0vw;
 }
 
 body,html {
@@ -144,7 +147,9 @@ footer {
     padding-bottom: 3vh;
 }
 
-
+#check {
+    display: none;
+}
 
 .ämne {
     display:flex;
@@ -154,7 +159,7 @@ footer {
     border-radius: 1vw;
     padding-top: 5vw;
     padding-bottom: 5vw;
-    margin-bottom: 1rem;
+    margin-bottom: 1vw;
 }
 
 .kurs {
@@ -164,7 +169,7 @@ footer {
         margin-bottom: 1rem;
         padding: 0.3rem;
         width: 15vw;
-        border-radius: 2rem;
+        border-radius: 1vw;
         color:black;
         font-size: 1.7vw;
         text-decoration: none;
@@ -239,7 +244,7 @@ button:hover {
     justify-content: space-between;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
     * {
         padding: 0;
         margin: 0;
@@ -273,8 +278,6 @@ button:hover {
 	margin-bottom: 0vw;
     }
     
-
-    
     p {
         font-family: 'Fira Code', monospace;
         font-size: 1.3vw;
@@ -283,8 +286,6 @@ button:hover {
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Roboto', sans-serif;
     }
-    
- 
     
     h2 {
         font-size:2vw;
@@ -313,12 +314,10 @@ button:hover {
     }
 
     .kurs-pic-matte {
-        margin-top: -3rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1vw;
     }
     .kurs-pic-fysik {
-        margin-top: -3rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1vw;
     }
     
     .mainpics {
@@ -339,18 +338,18 @@ button:hover {
         flex-direction: row;
     }
     
-    .Ã¤mne {
+    .ämne {
         width: 35vw;
         display:flex;
-        margin-left: 0.1rem;
-        margin-right: 0.1rem;
+        margin-left: 1vw;
+        margin-right: 1vw;
         flex-direction: column;
         text-align: center;
-        border-style: none;
-        border-style: solid;
-        border-radius: 1rem;
+	border: 0.1vw solid black;
+        border-radius: 1vw;
         padding-top: 5vw;
         padding-bottom: 5vw;
+	margin-top: 10vw;
         margin-bottom: 0rem;
     }
     
@@ -360,7 +359,8 @@ button:hover {
         margin: 0.6rem;
         padding: 0.3rem;
         width: 15vw;
-        border-radius: 2rem;
+	text-align: center;
+        border-radius: 1vw;
         color:black;
         font-size: 1.7vw;
         text-decoration: none;
