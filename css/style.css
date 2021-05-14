@@ -4,16 +4,30 @@
     --button-text: ;
 }
 
-body{
+.formula-body{
     padding-right: 15vw;
     padding-left: 15vw;
     scrollbar-width: thin;
     scrollbar-color: black white;
 }
 
+.index-body {
+    display: grid;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    width: 70vw;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 1fr auto;
+}
+
+.index-main {
+    margin-top: -3rem;
+}
 
 header a {
-    margin-top: 30px;
+    margin-top: 6vh;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-size: 4vw;
@@ -27,25 +41,28 @@ header a {
 
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    margin-bottom: 2vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
-    font-size: 4vw;
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
+    font-size: 4.5vw;
 }
 
 h2 {
     font-size:3vw;
-    font-family: 'Roboto', sans-serif;
     padding-left: 1.5vw;
 }
 
 h3 {
-    font-size: 2.3vw;
+    font-size: 3vw;
     font-family: 'Roboto', sans-serif;
 }
+
 
 h4 {
     padding-left: 20px;
@@ -53,11 +70,118 @@ h4 {
     font-family: 'Roboto', sans-serif;    
 }
 
+.mainpics {
+    display:flex; 
+    justify-content: space-around;
+}
+
+.rubrik {
+    display:flex;
+    gap: 2vw;
+    justify-content:center;
+    padding-bottom: 3vh;
+}
+
+.sub {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    border: 0.1vw solid;
+    border-radius: 1vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    margin-bottom: 1vw;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+.kurs {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(241, 245, 253);
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    width: 15vw;
+    border-radius: 1vw;
+    color:black;
+    font-size: 1.7vw;
+    text-decoration: none;
+}
+
+.kurs:hover {
+    transition-duration: 200ms;
+    background-color: aliceblue;
+
+}
+
+.kurser {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.outline{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 0.2vw solid black;
+    border-radius: 1vw;
+    margin-top: 5vw;
+    padding: 5vw;
+}
+
+/* button { */
+/*     float: right; */
+/*     cursor:pointer; */
+/*     background-color: white; */
+/*     border: 0.1vw solid rgba(0, 0, 0, 0.151); */
+/*     border-radius: 0.3vw; */
+/*     margin: 1rem; */
+/*     width: 4rem; */
+/*     height: 2rem; */
+/* } */
+
+#dark {
+    background-color: rgb(51, 30, 47);
+    color: #FFF;
+    font-weight: 700;
+}
+
+#light {
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+}
+
+#dark:hover, #light:hover {
+    background-color: rgb(52, 81, 87);
+    transition-duration: 200ms;
+}
+
+#light:hover {
+    background-color: rgb(52, 81, 87);
+    transition-duration: 200ms;
+}
+
 .collapsible:hover, header a:hover{
     text-decoration: underline;
     font-style: italic;
     cursor: pointer;
 }
+
+button:hover {
+    cursor: pointer;
+}
+
+.faq {
+    display: flex;
+    width: 1vw;
+    flex-direction: column;
+    padding: 1.3vw;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    justify-content: space-between;
+}
+
 
 .section {
     border: 0.2vw solid black;
@@ -71,30 +195,44 @@ h4 {
     padding-right: 5vw;
 }
 
+/* p { */
+/*     font-family: 'Fira Code', monospace; */
+/*     font-size: 1.3vw; */
+/* } */
 
-p{
+p {
+    font-size: 1.3vw;
+}
+
+.latex {
+    font-size: 5vw;;
+}
+
+helper < p {
     font-size: 5vw; 
     font-family: 'Roboto', sans-serif;   
 }
 
-a {
+.helper p {
+    font-size: 5vw; 
+}
+
+.formula-body a {
     font-style: italic;
     color: black;
     font-size:3.4vw;
 }
 
-
-
+.formula-body a {
+    font-style: normal;
+}
 
 .explanation {
     font-size:3.4vw;
 }
 
-
-
-
 .smalltext {
-    font-size: 2vw;
+    font-size: 1.3vw;
     font-family: 'Fira Code', monospace;
 }
 
@@ -116,7 +254,6 @@ a {
 .helper.toggle{
     outline: 0.1vw solid var(--color);
 }
-
 
 #temp{
     width: 100%;
@@ -193,7 +330,7 @@ a {
 /* .active:after { */
 /*   content: "\2796"; /\* Unicode character for "minus" sign (-) *\/ */
 /* } */
- 
+
 
 
 
@@ -211,6 +348,7 @@ a {
 }
 
 footer {
+    width: 100%;
     padding-top: 100px;
     text-align:center;
     margin: auto;
@@ -233,6 +371,10 @@ footer p {
     align-items: center;
 }
 
+.darkmode p {
+    margin:0;
+}
+
 .switch {
     display: flex;
     justify-content: end;
@@ -251,9 +393,9 @@ footer p {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -263,31 +405,206 @@ footer p {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
 
-  #check {
-      display: none;
-  }
-  
-  input:checked + .slider {
+#check {
+    display: none;
+}
+
+input:checked + .slider {
     background-color: #7f54b6;
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus + .slider {
     box-shadow: 0 0 1px #8b36d1;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
     border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
-  }
+}
+
+#faqId h4 {
+    padding-left: 0;
+}
+
+.kurs {
+    font-style: none;
+}
+
+@media (min-width: 1200px) {
+    /* * { */
+    /*     padding: 0; */
+    /*     margin: 0; */
+    /* } */
+    body, html {
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 1fr auto;
+    }
+    h1{
+        padding: 1vw;
+        font-size: 2vw;
+    }
+    header a {
+        margin-top: 8vh;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-size: 4vw;
+        color: black;
+        padding-left: 0.6vw;
+        padding-right: 0.6vw;
+        border: 0.2vw solid black;
+        border-radius: 1vw;
+        font-style: normal;
+    }
+    
+    header{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0vw;
+    }
+    
+    p {
+        font-family: 'Fira Code', monospace;
+        font-size: 1.3vw;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    h2 {
+        font-size:2vw;
+    }
+    
+    h3 {
+        font-size: 2.3vw;
+    }
+    
+    h4 {
+        margin-top: 1.2rem;
+        font-size: 1.5vw;
+    }
+
+    footer {
+	width: 100%;
+	padding-top: 100px;
+	text-align:center;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: 3vw;
+	padding-bottom: 3vw;
+    }
+
+    footer p {
+	font-family: 'Fira Code', monospace;
+	font-size: 1.3vw;
+    }
+
+    .kurs-pic-matte {
+        margin-bottom: 1vw;
+    }
+    .kurs-pic-fysik {
+        margin-bottom: 1vw;
+    }
+    
+    .mainpics {
+        display:flex; 
+        justify-content: space-around;
+    }
+    
+    .rubrik {
+        width: 30rem;
+        display:flex;
+        gap: 2vw;
+        justify-content:center;
+        padding-bottom: 4vh;
+    }
+    
+    .tabell {
+        display:flex;
+        flex-direction: row;
+    }
+    
+    /* .ämne { */
+    /*     width: 35vw; */
+    /*     display:flex; */
+    /*     margin-left: 1vw; */
+    /*     margin-right: 1vw; */
+    /*     flex-direction: column; */
+    /*     text-align: center; */
+    /* 	border: 0.1vw solid black; */
+    /*     border-radius: 1vw; */
+    /*     padding-top: 5vw; */
+    /*     padding-bottom: 5vw; */
+    /* 	margin-top: 10vw; */
+    /*     margin-bottom: 0rem; */
+    /* } */
+
+    .sub{
+	border: 0.1vw solid black;
+    }
+    
+    .kurs {
+        font-family: 'Roboto', sans-serif;
+        background-color: rgb(241, 245, 253);
+        margin: 0.6rem;
+        padding: 0.3rem;
+        width: 15vw;
+	text-align: center;
+        border-radius: 1vw;
+        color:black;
+        font-size: 1.7vw;
+        text-decoration: none;
+    }
+
+    .kurs:hover {
+        transition-duration: 200ms;
+        background-color: aliceblue;
+    }
+    
+    .kurser {
+        height: 24rem;
+        display:flex;
+        flex-direction: column;
+        justify-content:start;
+        align-items: center;
+    }
+    
+    
+    .outline{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        border: 0.2vw solid black;
+        border-radius: 1vw;
+        padding: 2vw;
+    }
+    
+
+    .faq {
+        display: flex;
+        margin: auto;
+        width: 70vw;
+        flex-direction: column;
+        padding: 2rem;
+        border-radius: 1vw;
+        margin-top: 1rem;
+        justify-content: space-between;
+    }
+
+}
