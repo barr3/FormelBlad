@@ -205,10 +205,10 @@ p {
 }
 
 .latex {
-    font-size: 5vw;;
+    font-size: 4.5vw;;
 }
 
-helper < p {
+helper p {
     font-size: 5vw; 
     font-family: 'Roboto', sans-serif;   
 }
@@ -220,15 +220,14 @@ helper < p {
 .formula-body a {
     font-style: italic;
     color: black;
-    font-size:3.4vw;
-}
-
-.formula-body a {
+    font-size:2.4vw;
     font-style: normal;
 }
 
+
 .explanation {
-    font-size:3.4vw;
+    font-size:2.4vw;
+    font-family: 'Roboto', sans-serif;
 }
 
 .smalltext {
@@ -442,7 +441,7 @@ input:checked + .slider:before {
     font-style: none;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
     /* * { */
     /*     padding: 0; */
     /*     margin: 0; */
@@ -455,7 +454,7 @@ input:checked + .slider:before {
     }
     h1{
         padding: 1vw;
-        font-size: 2vw;
+        font-size: 3.5vw;
     }
     header a {
         margin-top: 8vh;
@@ -480,13 +479,13 @@ input:checked + .slider:before {
         font-family: 'Fira Code', monospace;
         font-size: 1.3vw;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Roboto', sans-serif;
     }
     
     h2 {
-        font-size:2vw;
+        font-size:2.8vw;
     }
     
     h3 {

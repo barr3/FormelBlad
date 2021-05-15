@@ -1,13 +1,13 @@
-"use strict" 
+"use strict";
 
-const LOCAL_STORAGE_KEY_BAFB = "app.mode"
+const LOCAL_STORAGE_KEY_BAFB = "app.mode";
 
 let mode = localStorage.getItem(LOCAL_STORAGE_KEY_BAFB);
 
 var outlineColorDark = "#626294";
 var backgroundColorDark = "#151521";
 var accentColorDark = "#1f1f30";
-var textColorDark = "white"
+var textColorDark = "white";
 
 var outlineColorLight = "#000";
 var backgroundColorLight = "#fff";
@@ -21,7 +21,6 @@ if (mode == '"dark"'){
     document.getElementById("check").classList.add("slider");
     document.getElementById("check").checked = true;
     enableDark();
-
 } else if (mode == '"light"'){
     enableLight();
 } 
@@ -84,14 +83,14 @@ function enableDark() {
     let faq = document.getElementById("faqId");
     faq.style.backgroundColor = accentColorDark;
     }
-    catch {}
+    catch (err) {}
     
     try {    
 	let picMatte = document.getElementById("mattePic");
 	let picFysik = document.getElementById("fysikPic");
-	picMatte.style.filter = "invert(100%)"
-	picFysik.style.filter = "invert(100%)"
-    } catch {}
+	picMatte.style.filter = "invert(100%)";
+	picFysik.style.filter = "invert(100%)";
+    } catch (err) {}
 
     // outline.style.borderColor = "#626294"
     // box.style.borderColor = "#626294"
@@ -145,15 +144,12 @@ function enableDark() {
 
 function enableLight() {
 
-    try {
-    
+    try {    
 	let picMatte = document.getElementById("mattePic");
 	let picFysik = document.getElementById("fysikPic");
-	picMatte.style.filter = "invert(0%)"
-	picFysik.style.filter = "invert(0%)"
-    } catch {
-	
-    }
+	picMatte.style.filter = "invert(0%)";
+	picFysik.style.filter = "invert(0%)";
+    } catch (err) {}
 
     
     document.body.style.backgroundColor = backgroundColorLight;
