@@ -1,6 +1,5 @@
 Formelblad
 
-* Lägga till en ny sektion (rörelse, ellära, trigonometri et.c)
-  Om du vill lägga till en sektion av en kurs som inte finns redan kopierar du mallen 
+* Lägga till en ny formel
  
-    https://github.com/barr3/FormelAdder
+  Se gärna https://github.com/barr3/FormelAdder
