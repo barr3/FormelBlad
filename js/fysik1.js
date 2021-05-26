@@ -16,8 +16,9 @@ var r;
 var mu;
 var Ff;
 var FN;
-
-
+var W;
+var h;
+var P;
 
 
 
@@ -27,7 +28,7 @@ class Formula {
     constructor(formula, vars, blockId) {
 	
 	this.formula = formula;
-	this.vars = vars; //variables used in formula. I.E ["E", "m"] in E=mc²
+	this.vars = vars; //variables used in formula. I.E ["E", "m"] in E=mcÂ²
 	this.blockId = blockId; //id of the dom-object containing the formula
 
 	this.ids = [];
@@ -177,8 +178,11 @@ formulas.push(new Formula(["F = G * (m1 * m2 / (r**2))", "m1 = F * r**2/(G * m2)
 			   "m2 = F * r**2/(G * m1)", "r = Math.sqrt(G * (m1 * m2 / (F)))"],
 			  ["F", "m1", "m2", "r"], 6))		 			  
 formulas.push(new Formula(["F = m * g", "m = F/g"], ["F", "m"], 7));
-formulas.push(new Formula(["Ff = mu * FN", "mu = Ff / FN", "FN = Ff / mu"], ["Ff","mu", "FN"], 8 ))
-
+formulas.push(new Formula(["Ff = mu * FN", "mu = Ff / FN", "FN = Ff / mu"], ["Ff","mu", "FN"], 8 ));
+formulas.push(new Formula(["W = F * s", "F = W/s","s=W/F"], ["W","F","s"], "arbete"));
+formulas.push(new Formula(["E = m*g*h", "m = E/(g*h)", "h = E/(m*g)"], ["E","m","h"], "potentiell"));
+formulas.push(new Formula(["E = (m* v**2) / (2)", "m = (2*E) / (v**2)"], ["E","m","v"], "kinetisk"));
+formulas.push(new Formula(["P = W/t", "W = P*t", "t = W/t"], ["P","W","t"], "effekt"));
 
 //================================================================================================================
 
