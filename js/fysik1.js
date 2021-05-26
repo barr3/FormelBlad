@@ -19,6 +19,11 @@ var FN;
 var W;
 var h;
 var P;
+var Pn;
+var Pt;
+var eta;
+var p;
+
 
 
 
@@ -183,6 +188,9 @@ formulas.push(new Formula(["W = F * s", "F = W/s","s=W/F"], ["W","F","s"], "arbe
 formulas.push(new Formula(["E = m*g*h", "m = E/(g*h)", "h = E/(m*g)"], ["E","m","h"], "potentiell"));
 formulas.push(new Formula(["E = (m* v**2) / (2)", "m = (2*E) / (v**2)"], ["E","m","v"], "kinetisk"));
 formulas.push(new Formula(["P = W/t", "W = P*t", "t = W/t"], ["P","W","t"], "effekt"));
+formulas.push(new Formula(["eta = Pn/Pt", "Pn = eta * Pt", "Pt = Pn/eta"], ["eta", "Pn", "Pt"], "verkningsgrad"));
+formulas.push(new Formula(["p = m*v", "m = p/v", "v = p/m"], ["p", "m", "v"], "rörelsemängd"));
+formulas.push(new Formula(["I = F * t", "F = I/t", "t = I/F"], ["I","F","t"], "impuls"));
 
 //================================================================================================================
 
