@@ -23,9 +23,10 @@ var Pn;
 var Pt;
 var eta;
 var p;
-
-
-
+var V;
+var rho;
+var A;
+var h;
 
 let formulas = [];
 
@@ -98,13 +99,13 @@ class Formula {
 
     
     formulaLatex(input,variable){
-
+	console.log("input: ", input)
 	// this.getOtherVars(variable);
 
 	
 	var leftSide;
 	var rightSide;
-
+	
 
 	for (var i = 0; i < this.formula.length; i++) {
 	    leftSide = this.formula[i].split("=")[0];
@@ -115,14 +116,15 @@ class Formula {
 	    }
 	    
 	}
-	
 
-	for (var p = 0; p < this.notvars.length; p++) {
-	    eval(this.notvars[p] + "= input.split(';')[p]");
+
+
+	for (var i = 0; i < this.notvars.length; i++) {
+	    eval(this.notvars[i] + "= input.split(';')[i]");
 	}
 
 	
-	console.log(rightSide);
+	console.log(rightSide); 
 	var result = eval(rightSide);
 	console.log(result);
 	
@@ -149,23 +151,27 @@ class Formula {
 	    this.getOtherVars(variable);
 	    
 	    var placeholder;
-
+	    var inputs = `<div id='temp'> `;
+	    console.log(this.notvars.length);
 	    for (var i = 0; i < this.notvars.length; i++) {
+
 		
-		if (i == 0) {
-		    placeholder = "Vänligen skriv in: " + this.notvars[i];
+		// if (i == 0) {
+		//     placeholder = "Vänligen skriv in: " + this.notvars[i];
 		    
-		} else {		 
-		    placeholder += ", " + this.notvars[i];
-		}
+		// } else {		 
+		//     placeholder += ", " + this.notvars[i];
+		// }
+
+		inputs += `<input type='text' placeholder='${this.notvars[i]}'  class='tempinput' id='tempinput' name='formula'>`;
 	    }
-
-	    placeholder += '. Separera värdena med ett ";"';
+	    inputs += `<button class='tempbutton' onclick='removeField(${tempId}, ${tempObj}, ${varString})'>Lös för ${variable} </button> </div>`
+	    //placeholder += '. Separera värdena med ett ";"';
 	    
-
 	    
-	    main.insertAdjacentHTML("beforeend", `<div id='temp'>  <input type='text' placeholder='${placeholder}'  class='tempinput' id='tempinput' name='formula'><button class='tempbutton' onclick='removeField(${tempId}, ${tempObj}, ${varString})'>Lös för ${variable} </button> </div>`);
+	    //main.insertAdjacentHTML("beforeend", `<div id='temp'>  <input type='text' placeholder='${placeholder}'  class='tempinput' id='tempinput' name='formula'><button class='tempbutton' onclick='removeField(${tempId}, ${tempObj}, ${varString})'>Lös för ${variable} </button> </div>`);
 
+	    main.insertAdjacentHTML("beforeend", inputs);
 	} 
     }
 
@@ -191,6 +197,11 @@ formulas.push(new Formula(["P = W/t", "W = P*t", "t = W/t"], ["P","W","t"], "eff
 formulas.push(new Formula(["eta = Pn/Pt", "Pn = eta * Pt", "Pt = Pn/eta"], ["eta", "Pn", "Pt"], "verkningsgrad"));
 formulas.push(new Formula(["p = m*v", "m = p/v", "v = p/m"], ["p", "m", "v"], "rörelsemängd"));
 formulas.push(new Formula(["I = F * t", "F = I/t", "t = I/F"], ["I","F","t"], "impuls"));
+formulas.push(new Formula(["rho = m/V", "m = rho * V", "V = m/rho"], ["rho","m","V"], "densitet"));
+formulas.push(new Formula(["p = F/A", "F = p * A","A = F/p"], ["p","F","A"], "tryck"));
+formulas.push(new Formula(["p = rho * g * h", "rho = p/(g*h)", "h = p/(rho*g)"], ["p","rho","h"], "vätsketryck"));
+formulas.push(new Formula(["F = rho * g * V", "rho = F/(g*V)", "V = F/(rho*g)"], ["F","rho","V"], "arkimedes"));
+
 
 //================================================================================================================
 
@@ -279,10 +290,17 @@ function removeField(itemId, obj, variable){ //Removes the temporary text input 
 	document.getElementById(itemId[i]).classList.remove("toggle");
     }
 
-    var input = document.getElementById("tempinput").value; 
+    //var input = document.getElementById("tempinput").value; 
+    var inputElements = document.getElementsByClassName("tempinput"); 
+    //document.getElementById("temp").remove();
 
-    document.getElementById("temp").remove();
+    let input;
+    for (var i = 0; i < inputElements.length; i++) {
+	console.log(inputElements[i].value);
+	input[i] = inputElements[i].value;
+    }
 
+    console.log(input[0]);
     var clickedObject;
     for (var r = 0; r < formulas.length; r++) {
 
@@ -327,6 +345,7 @@ function pairObjects(obj) { //Takes an html-object and returns the corresponding
 //Allows for folding in the text
 var coll = document.getElementsByClassName("collapsible");
 for (var i = 0; i < coll.length; i++) {
+    coll[i].nextElementSibling.classList.add("active");
     coll[i].addEventListener("click", function() {
 	// this.classList.toggle("active");
 	var content = this.nextElementSibling;
